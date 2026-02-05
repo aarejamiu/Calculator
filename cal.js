@@ -1,3 +1,5 @@
+let screen1 = document.getElementById('screen1');
+let screen2 = document.getElementById('screen2');
 
 let screen2Clear = false;
 
@@ -107,22 +109,37 @@ function clean() {
 function decimal(deci){
     screen2.value += deci;
 }
-let memory = screen2.value;
 
-function memo() {
-    if (memo == 'MC') {
-        memory = '';
+function memo(type) {
+    let memory = screen2.value;
+    // screen1.value = ;
+    screen2Clear = true;
+    empty = '';
+    if (type === 'MC') {
+        if (screen2Clear === false) {
+            screen2.value = '';
+            screen1.value = '';
+        }
+        else {
+            return;
+        }
     }
-    else if (memo == 'MR') {
+    else if (type === 'MR') {
+        screen1.value = memory + '=';
         screen2.value = memory;
     }
-    else if (memo == 'M+') {
-        memory += screen2.value 
+    else if (type === 'M+') {
+        // screen1.value = memory + '+' ;
+        // if (screen2Clear = false) {
+        //     screen2.value = empty;
+        //     screen2.value = Number(memory) + Number(screen2.value);
+        // }
+        screen2.value = Number(memory) + Number(screen2.value);
     }
-    else if (memo == 'M-') {
-        memory -= screen2.value;
+    else if (type === 'M-') {
+        memory -= Number(screen2.value);
     }
-    else if (memo == 'MS') {
-        memory = screen2.value;
+    else if (type === 'MS') {
+        memory = Number(screen2.value);
     }
 }

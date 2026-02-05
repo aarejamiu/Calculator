@@ -63,6 +63,15 @@
       #councilOfMs {
         display: flex;
         justify-content: space-around;
+        /* margin-bottom: 5px; */
+        /* width: 23%; */
+        border: thin solid;
+        /* height: 95%; */
+        border-radius: 5px;
+        /* padding-bottom: 20px; */
+        border: 1px solid green;
+        background: aliceblue;
+        font-size: 1.2em;
       }
       #line {
         height: 50px;
@@ -146,12 +155,12 @@
       </div>
 
       <div id="councilOfMs">
-        <p>MC</p>
-        <p>MR</p>
-        <p>M+</p>
-        <p>M-</p>
-        <p>MS</p>
-        <p>M-</p>
+        <button onclick="memo('MC')"><p>MC</p></button>                   
+        <button onclick="memo('MR')"><p>MR</p></button>                   
+        <button onclick="memo('M+')"><p>M+</p></button>                   
+        <button onclick="memo('M-')"><p>M-</p></button>                   
+        <button onclick="memo('MS')"><p>MS</p></button>                   
+        <!-- <button onclick="memo('M-')"><p>M-</p></button>                    -->
       </div>
 
       <div id="line">

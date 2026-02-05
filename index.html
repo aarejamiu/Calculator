@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .calculatorbody {
+        width: 350px;
+        height: 530px;
+        border: thin solid;
+        margin: 10vh auto;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px 5px grey;
+        background: bisque;
+      }
+      .calculatorbody header {
+        /* margin-top: -2vh; */
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .calculatorbody header div {
+        display: flex;
+        width: 100px;
+        justify-content: space-between;
+      }
+      .line2 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .line2 div {
+        display: flex;
+        width: 150px;
+        justify-content: space-between;
+        margin-top: 2vh;
+      }
+      .line2 div h3 {
+        margin-top: -0.5vh;
+      }
+      .line2 div:nth-child(2) {
+        width: 19px;
+      }
+      #display-wrapper {
+        text-align: right;
+        padding: 9px;
+      }
+      #screen {
+        font-size: 44px;
+        margin-top: 20px;
+      }
+      #screen {
+        font-size: 20px;
+      }
+      #councilOfMs {
+        display: flex;
+        justify-content: space-around;
+      }
+      #line {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+      #line button {
+        width: 23%;
+        border: thin solid;
+        height: 95%;
+        border-radius: 5px;
+        padding-bottom: 20px;
+        border: 1px solid green;
+        background: aliceblue;
+        font-size: 1.2em;
+      }
+      #line:hover {
+        color: burlywood;
+      }
+      #screen2::placeholder {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculatorbody">
+      <header>
+        <div>
+          <i class="fa-solid fa-calculator"></i>
+          <span>calculator</span>
+        </div>
+        <div>
+          <i class="fa-solid fa-minus"></i>
+          <i class="fa-solid fa-window-maximize"></i>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </header>
+
+      <div class="line2">
+        <div>
+          <i class="fa-solid fa-bars"></i>
+          <h3>Standard</h3>
+          <i class="fa-solid fa-maximize"></i>
+        </div>
+        <div><i class="fa-solid fa-gauge-simple-high"></i></div>
+      </div>
+
+      <div id="display-wrapper">
+        <div id="screen">
+          <input
+            type="text"
+            id="screen1"
+            style="
+              width: 100%;
+              height: 25px;
+              border-radius: 5px;
+              text-align: right;
+              border: none;
+              font-size: 1em;
+            "
+            readonly
+          />
+        </div>
+        <div id="screen">
+          <input
+            type="text"
+            id="screen2"
+            style="
+              width: 100%;
+              height: 25px;
+              border-radius: 5px;
+              text-align: right;
+              border: none;
+              font-size: 1.2em;
+            "
+            placeholder="0"
+            readonly
+          />
+        </div>
+      </div>
+
+      <div id="councilOfMs">
+        <p>MC</p>
+        <p>MR</p>
+        <p>M+</p>
+        <p>M-</p>
+        <p>MS</p>
+        <p>M-</p>
+      </div>
+
+      <div id="line">
+        <button onclick="operators('%')">
+          <p>%</p>
+        </button>
+        <button onclick="clean()">
+          <p>CE</p>
+        </button>
+        <button onclick="clearButton()">
+          <p>C</p>
+        </button>
+        <button onclick="backSpace()">
+          <p><i class="fa-solid fa-delete-left"></i></p>
+        </button>
+      </div>
+
+      <div id="line">
+        <button onclick="operators('1/x')">
+          <p>1/x</p>
+        </button>
+        <button onclick="operators('^')">
+          <p>x^y</p>
+        </button>
+        <button onclick="operators('✓')">
+          <p><i class="fa-solid fa-square-root-variable"></i></p>
+        </button>
+        <button onclick="operators('÷')">
+          <p>÷</p>
+        </button>
+      </div>
+
+      <div id="line">
+        <button onclick="numberDisplay(7)">
+          <p>7</p>
+        </button>
+        <button onclick="numberDisplay(8)">
+          <p>8</p>
+        </button>
+        <button onclick="numberDisplay(9)">
+          <p>9</p>
+        </button>
+        <button onclick="operators('x')">
+          <p>X</p>
+        </button>
+      </div>
+
+      <div id="line">
+        <button onclick="numberDisplay(4)">
+          <p>4</p>
+        </button>
+        <button onclick="numberDisplay(5)">
+          <p>5</p>
+        </button>
+        <button onclick="numberDisplay(6)">
+          <p>6</p>
+        </button>
+        <button onclick="operators('-')">
+          <p>-</p>
+        </button>
+      </div>
+
+      <div id="line">
+        <button onclick="numberDisplay(1)">
+          <p>1</p>
+        </button>
+        <button onclick="numberDisplay(2)">
+          <p>2</p>
+        </button>
+        <button onclick="numberDisplay(3)">
+          <p>3</p>
+        </button>
+        <button onclick="operators('+')">
+          <p>+</p>
+        </button>
+      </div>
+
+      <div id="line">
+        <button>
+          <p>±</p>
+        </button>
+        <button onclick="numberDisplay(0)">
+          <p>0</p>
+        </button>
+        <button onclick="decimal('.')">
+          <p>.</p>
+        </button>
+        <button onclick="equals()">
+          <p>=</p>
+        </button>
+      </div>
+    </div>
+  </body>
+  <script src="/cal.js"></script>
+</html>
